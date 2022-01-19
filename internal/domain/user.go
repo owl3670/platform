@@ -7,3 +7,17 @@ type User struct {
 	Role         string `json:"role"`
 	RefreshToken string `json:"refresh_token"`
 }
+
+type UserService interface {
+	Create(user *User) error
+	Update(user *User) error
+	Delete(id int) error
+	FindByID(id int) (*User, error)
+}
+
+type UserRepository interface {
+	Create(user *User) error
+	Update(user *User) error
+	Delete(id int) error
+	FindByID(id int) (*User, error)
+}
